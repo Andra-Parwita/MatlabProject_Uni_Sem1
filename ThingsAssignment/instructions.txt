@@ -1,0 +1,7 @@
+Run Assignment.m to play. Keyboard inputs only & play on figure
+press h for help
+
+Previous versions are in "Developments" folder
+    - some older versions may not work as audio files and other functions which the program relies on were not saved together
+
+Testing found in TestChangeLog

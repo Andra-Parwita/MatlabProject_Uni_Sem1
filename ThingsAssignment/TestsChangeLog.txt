@@ -1,0 +1,115 @@
+Testing steps
+    -Testing checks
+1. Checking if figure/display is as imagined
+2. Inputs from user (clicking, random numbers and letters)
+3. Checking if variables are correct by using disp
+4. Checking if function works as intended
+5. Finding anyways to break the figure, display or game 
+6. Checking added functions are user friendly
+
+Version 1
+Added random map generation. 
+Checking different maps by re-running the program to see if they are randomised 
+
+Version 2
+Added a while statement for the game start
+Added the player movement around the map and tested by moving using arrow keys. 
+Tested keyboard inputs within keytest.m. Problems found when player hits the map edges as it tries to move the player outside the matrix. 
+Fixed border by adding an if statement to check if they are at the border before checking if there is a wall in the chosen direction. 
+Player position was also offset as the player start in the right corner was 0,0 on the map but counts as 1,1 on the matrix. Fixed by adding plus 1
+Made it so player cannot move past a tile with the id 0 displaying to the user that there is a wall. 
+Testing done by displaying Map encounters with disp(mapEncounters) and comparing it to the corresponding tile displayed on the map
+
+Version 3
+Added a wall break for the player with space so they can enter walls after putting the direction they want. Might add a limited amount of uses later
+testing by pressing space then a random key
+Error when attempting to wall break at the border. Fixed with if statements for specific direction input to say there is a border and when the player is at the border.
+
+Version 4
+Added custom sounds for each interaction by reading an .wav file and saving it into a variable. 
+Checking if correct sound is played according to interaction and user inputs by simply using play("sound"). No errors
+
+Version 5
+Added an fight encounter when the tile the player moves into is equal to 2. Simply displays the player and opponent in a new figure
+Made the chance 1/8 each time the player moves over a tile to make it less annoying
+
+    -Test cases for tiles
+Tile    Expected            Output
+1       empty/pass          empty
+0       impassable wall     impassable wall
+2       chance for enemy    battle(sometimes)
+
+Tested by making the chance 1/1, meaning it will enter battle as soon as player enters a "2" tile. 
+
+Version 6
+Added a new battle function -Basically no change to main, hence no new version for main
+Added a menu for selection within the battle and selection sounds.
+    - menu tests
+input   expected                output
+left    move slection left      
+right   move selection right
+enter   confirm selection
+space   confirm selection
+
+Added a battle enter animation using pause. 
+Added a selection table to actually choose what you want to do
+
+Version 7 
+Finished battle checking for each outcome
+
+    -Test cases for battle
+Player          Enemy           Expected                    Outcome
+Rock(1)         rock            tie, dmg to both or nothing
+Paper(2)        rock            Win
+Scissors(3)     rock            loss
+Rock(1)         paper           loss
+Paper(2)        paper           tie
+Scissors(3)     paper           win
+Rock(1)         scissors        win
+Paper(2)        scissors        loss
+Scissors(3)     scissors        tie
+
+error with loop not ending at 0 Hp -Changed to and && conditional instead of or ||
+renamed attacks to rock paper and scissors to make it appropriate 
+added enemy entering animation
+damage sounds
+
+Version 8
+added health bars
+scales with the values of enemy and playerHp
+error with negative health and bar size calculations -added if 
+Added menu for map size with similar code to the battle options
+Menu function can be tested without main
+
+- Test Cases for map sizes
+MapSize     Expected    Output
+Small       10x10 map   10x10 map (scaled up to same ratio as medium)
+Medium      20x20 map   20x20 default
+Large       25x25 map   25x25 (slighter larger)
+
+Added a game close when esc is pressed (in map view only)
+coin locations and random placement
+
+Version 9/10
+coin pick up and sound for coin
+Game win when coins are all picked up
+test = coins are = 5, game ends
+Fixed PlayerHp Ui breaking when game over
+wallbreak counter, using disp to see if count goes down after use
+restore wallbreak tile at beginning in case softlocked with no wall breaks
+
+Version 11
+Coin Counter and wall break counter for user ease
+Added help menu, Win animation and restore sound, a buffer to confirm exit
+- Menu tests
+input   expected                        output
+esc     close menu                      close menu
+left    go back (unless first screen)   go back
+right   next                            next  
+enter   next                            next
+space   next                            next
+
+Menu tested by following steps without needing to run the main
+
+To do:
+
